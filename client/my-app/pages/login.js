@@ -16,8 +16,13 @@ function socialGoogleLogin() {
   var socialLoginStr = "identity_provider=" + "Google&";
 
   //Make the the request URL
-
-  //return getRequestURL;
+  var getRequestURL = 'https://sonosannounce-development.auth.us-west-2.amazoncognito.com/oauth2/authorize?';
+  getRequestURL += 'response_type=code&'; //Authorization Code Grant Flow
+  getRequestURL += 'client_id=29vvv56v5h5dol3qo7unc4l9ik&'; //App ID
+  getRequestURL += 'redirect_uri=http://localhost:3000/&'; //Redirect
+  getRequestURL += socialLoginStr;
+  getRequestURL += 'scope=openid+profile+email+aws.cognito.signin.user.admin';
+  return getRequestURL;
 }
 
 //Make this a class

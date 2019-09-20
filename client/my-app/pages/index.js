@@ -27,7 +27,26 @@ class Index extends React.Component {
     const clientId = "";
     const clientSecret = "";
 
-    const encodedString = window.btoa(clientId + ":" + clientSecret);
+    //const encodedString = window.btoa(clientId + ":" + clientSecret);
+
+    axios.post('https://faqxn3bybb.execute-api.us-west-2.amazonaws.com/development/auth/tokens',
+            qs.stringify(
+            {
+              type: "login",
+              client_id: "29vvv56v5h5dol3qo7unc4l9ik",
+              code: "AUTHORIZATION_CODE",
+              redirect_uri: "http://localhost:3000/"
+            }
+        )
+      ).then(res => {
+        //Save the tokens in cookies
+          console.log(res);
+      }).catch(res => {
+        console.log("There is an error");
+        console.log(res);
+      });
+
+    
 
     /*axios.post('https://  name  .auth.us-west-2.amazoncognito.com/oauth2/token',
             qs.stringify(
