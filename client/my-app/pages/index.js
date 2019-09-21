@@ -1,5 +1,5 @@
 import Layout from '../components/Layout';
-
+import SonosLogin from '../components/SonosLogin';
 import Link from 'next/link';
 import axios from 'axios';
 
@@ -85,7 +85,7 @@ class Index extends React.Component {
   render() {
     return(
       <Layout>
-        
+        <SonosLogin />
       </Layout>
     );
   }
