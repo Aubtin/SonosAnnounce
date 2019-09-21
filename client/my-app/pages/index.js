@@ -26,20 +26,22 @@ class Index extends React.Component {
     const AUTHORIZATION_CODE = this.props.query.code;
     console.log("This is the authcode:" + AUTHORIZATION_CODE);
 
-    const clientId = "";
-    const clientSecret = "";
-
     //const encodedString = window.btoa(clientId + ":" + clientSecret);
 
     axios.post('https://lvr9pdp7ea.execute-api.us-west-2.amazonaws.com/development/auth/users/tokens',
             qs.stringify(
             {
               type: "login",
-              client_id: "29vvv56v5h5dol3qo7unc4l9ik",
+              client_id: "5o28o8vhkmc07rgjneb5e2eht6",
               code: AUTHORIZATION_CODE,
               redirect_uri: "http://localhost:3000/"
             }
-        )
+        ),
+        {
+          headers: {
+              'Content-Type': 'application/json'
+              }
+          },
       ).then(res => {
         //Save the tokens in cookies
           console.log(res);
