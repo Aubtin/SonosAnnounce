@@ -12,7 +12,8 @@ class Index extends React.Component {
   constructor(props) {
       super(props);
       this.state = {
-        
+        googleLoggedIn: false,
+        sonosLoggedIn: false,
       }
     }
 
@@ -20,7 +21,8 @@ class Index extends React.Component {
       return {query}
     }
 
-  exchangeAuthCodeForToken() {
+  exchangeGoogleAuthCodeForToken() {
+    console.log("in google function");
     const AUTHORIZATION_CODE = this.props.query.code;
     console.log("This is the authcode:" + AUTHORIZATION_CODE);
 
@@ -29,12 +31,12 @@ class Index extends React.Component {
 
     //const encodedString = window.btoa(clientId + ":" + clientSecret);
 
-    axios.post('https://faqxn3bybb.execute-api.us-west-2.amazonaws.com/development/auth/tokens',
+    axios.post('https://lvr9pdp7ea.execute-api.us-west-2.amazonaws.com/development/auth/users/tokens',
             qs.stringify(
             {
               type: "login",
               client_id: "29vvv56v5h5dol3qo7unc4l9ik",
-              code: "AUTHORIZATION_CODE",
+              code: AUTHORIZATION_CODE,
               redirect_uri: "http://localhost:3000/"
             }
         )
@@ -45,6 +47,8 @@ class Index extends React.Component {
         console.log("There is an error");
         console.log(res);
       });
+
+      this.setState({googleLoggedIn: true});
 
     
 
@@ -73,12 +77,44 @@ class Index extends React.Component {
 
   }
 
+  exchangeSonosAuthCodeForToken() {
+    const AUTHORIZATION_CODE = this.props.query.code;
+    axios.post('https://lvr9pdp7ea.execute-api.us-west-2.amazonaws.com/development/auth/sonos/tokens',
+            qs.stringify(
+            {
+              "grant_type": "authorization_code",
+              "code": AUTHORIZATION_CODE,
+              "redirect_uri": "http://localhost:3000/"
+            }
+        ), 
+        {
+          headers: {
+            Authorization: "Basic " + encodedString,
+              'Content-Type': 'application/x-www-form-urlencoded'
+              }
+          },
+      ).then(res => {
+        //Save the tokens in cookies
+          console.log(res);
+      }).catch(res => {
+        console.log("There is an error");
+        console.log(res);
+      });
+
+      this.setState({sonosLoggedIn: true});
+  }
+
   componentDidMount() {
     //Exchange when there is a code
 
     if(this.props.query) {
-      
-      this.exchangeAuthCodeForToken();
+
+      if(this.props.query.state === 'GOOGLE' && this.state.googleLoggedIn === false) {
+        this.exchangeGoogleAuthCodeForToken();
+      }
+      else if(this.props.query.state === 'sonos' && this.state.sonosLoggedIn === false) {
+
+      }
     }
   }
 

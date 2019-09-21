@@ -16,7 +16,7 @@ function socialGoogleLogin() {
   //var socialLoginStr = "identity_provider=" + "Google&";
 
   //Make the the request URL
-  var getRequestURL = "https://sonosannounce-development.auth.us-west-2.amazoncognito.com/oauth2/authorize?response_type=code&client_id=7nl0dnqfskprvbbr69jf4viqqm&redirect_uri=http://localhost:3000/&state=STATE&identity_provider=Google&scope=phone+openid+profile+email+aws.cognito.signin.user.admin";
+  var getRequestURL = "https://sonosannounce-development.auth.us-west-2.amazoncognito.com/oauth2/authorize?response_type=code&client_id=5o28o8vhkmc07rgjneb5e2eht6&redirect_uri=http://localhost:3000/&state=GOOGLE&identity_provider=Google&scope=phone+openid+profile+email+aws.cognito.signin.user.admin";
   /*var getRequestURL = 'https://sonosannounce-development.auth.us-west-2.amazoncognito.com/oauth2/authorize?';
   getRequestURL += 'response_type=code&'; //Authorization Code Grant Flow
   getRequestURL += 'client_id=29vvv56v5h5dol3qo7unc4l9ik&'; //App ID
