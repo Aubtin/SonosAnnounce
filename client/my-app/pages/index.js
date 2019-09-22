@@ -1,5 +1,6 @@
 import Layout from '../components/Layout';
 import SonosLogin from '../components/SonosLogin';
+import MainApplication from '../components/MainApplication';
 import Link from 'next/link';
 import axios from 'axios';
 
@@ -137,7 +138,7 @@ class Index extends React.Component {
     return(
       <Layout>
         {this.state.googleLoggedIn === true && this.state.sonosLoggedIn === false && <SonosLogin />}
-        {this.state.googleLoggedIn === true && this.state.sonosLoggedIn === true && <h1>Logged in sonos and google</h1>}
+        {this.state.googleLoggedIn === true && this.state.sonosLoggedIn === true && <MainApplication />}
       </Layout>
     );
   }
