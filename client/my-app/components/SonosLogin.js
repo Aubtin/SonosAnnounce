@@ -32,7 +32,7 @@ function sonosLogin() {
   //getRequestURL += 'redirect_uri=http://localhost:3000/&'; //Redirect
   //getRequestURL += socialLoginStr;
 
-  var getRequestURL = "https://api.sonos.com/login/v3/oauth?client_id=5ade8149-be15-45ec-8489-5f45b029a3cc&response_type=code&state=TESTSTATE&scope=playback-control-all&redirect_uri=http://localhost:3000/sonos/authorize";
+  var getRequestURL = "https://api.sonos.com/login/v3/oauth?client_id=5ade8149-be15-45ec-8489-5f45b029a3cc&response_type=code&state=SONOS&scope=playback-control-all&redirect_uri=http://localhost:3000/";
   
   return getRequestURL;
 }
