@@ -3,6 +3,7 @@ import SonosLogin from '../components/SonosLogin';
 import MainApplication from '../components/MainApplication';
 import Link from 'next/link';
 import axios from 'axios';
+import {Button} from 'semantic-ui-react';
 
 var qs = require('qs');
 
@@ -21,6 +22,15 @@ class Index extends React.Component {
     static getInitialProps({query}) {
       return {query}
     }
+
+  logout() {
+    //Clear local storage
+    window.localStorage.clear();
+
+    //Log out and redirect
+    window.location.href="https://sonosannounce-development.auth.us-west-2.amazoncognito.com/logout?client_id=5o28o8vhkmc07rgjneb5e2eht6&logout_uri=http://localhost:3000/login&scope=openid+profile+aws.cognito.signin.user.admin";
+    //window.location.href="https://sonosannounce-development.auth.us-west-2.amazoncognito.com/logout?response_type=code&client_id=5o28o8vhkmc07rgjneb5e2eht6&redirect_uri=http://localhost:3000/login/&scope=openid+profile+aws.cognito.signin.user.admin";
+  }
 
   exchangeGoogleAuthCodeForToken() {
     console.log("in google function");
@@ -137,11 +147,18 @@ class Index extends React.Component {
   render() {
     return(
       <Layout>
+        {this.state.googleLoggedIn === true && <Button onClick={() => this.logout()} style={buttonStyle}>Logout</Button>}
         {this.state.googleLoggedIn === true && this.state.sonosLoggedIn === false && <SonosLogin />}
         {this.state.googleLoggedIn === true && this.state.sonosLoggedIn === true && <MainApplication />}
       </Layout>
     );
   }
+}
+
+const buttonStyle = {
+  'margin-left': '92.5%',
+  'margin-right': '1.5%',
+  'margin-top': '1%'
 }
 
 export default Index;
