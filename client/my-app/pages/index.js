@@ -5,7 +5,6 @@ import Link from 'next/link';
 import axios from 'axios';
 import {Button} from 'semantic-ui-react';
 
-
 var qs = require('qs');
 
 import { Divider, Grid, Image, Segment, Header } from 'semantic-ui-react';
@@ -54,20 +53,33 @@ class Index extends React.Component {
           },
       ).then(res => {
         //Save the tokens in cookies
+          console.log("00000000000000000000000000000000000000000000000000000, its works the google trade");
           console.log(res);
+          var id_token = res.data.data.id_token;
+          var refresh_token = res.data.data.refresh_token;
+
+          const GOOGLE = {
+            googleLoggedIn: true,
+            codeGoogle: AUTHORIZATION_CODE,
+            id_token: id_token,
+            refresh_token: refresh_token
+          }
+
+          this.setState({googleLoggedIn: true});
+
+          window.localStorage.setItem('google', JSON.stringify(GOOGLE));
+          console.log("This is the google function hehe:");
+          console.log(window.localStorage.getItem('google'));
+
       }).catch(res => {
         console.log("There is an error");
         console.log(res);
+        window.location.href="/login"
       });
 
-      this.setState({googleLoggedIn: true});
+      //console.log("This is the google function hehe:");
+      //console.log(window.localStorage.getItem('google'));
 
-      const GOOGLE = {
-        googleLoggedIn: true,
-        codeGoogle: AUTHORIZATION_CODE
-      }
-
-      window.localStorage.setItem('google', JSON.stringify(GOOGLE));
   }
 
   exchangeSonosAuthCodeForToken() {
@@ -82,27 +94,27 @@ class Index extends React.Component {
         , 
         {
           headers: {
-              'Content-Type': 'application/json'
+              'Content-Type': 'application/json',
+              'Authorization': JSON.parse(window.localStorage.getItem('google')).id_token
               }
           },
       ).then(res => {
-        //Save the tokens in cookies
-          console.log(res);
+
+          const SONOS = {
+            sonosLoggedIn: true,
+            codeSonos: AUTHORIZATION_CODE,
+            api_key: res.data.data.api_key
+          }
+
+          window.localStorage.setItem('sonos', JSON.stringify(SONOS));
+
+          this.setState({sonosLoggedIn: true});
+          console.log(window.localStorage.getItem('sonos'));
       }).catch(res => {
         console.log("There is an error");
         console.log(res);
       });
 
-      this.setState({sonosLoggedIn: true});
-
-      const SONOS = {
-        sonosLoggedIn: true,
-        codeSonos: AUTHORIZATION_CODE
-      }
-
-      window.localStorage.setItem('sonos', JSON.stringify(SONOS));
-      console.log("This is the sonos function hehe:");
-      console.log(window.localStorage.getItem('sonos'));
   }
 
   componentDidMount() {
@@ -130,19 +142,20 @@ class Index extends React.Component {
     
     //Trading Auth for Code
     if(this.props.query) {
-
+      console.log(this.props.query);
       if(this.props.query.state === 'GOOGLE' && JSON.parse(window.localStorage.getItem('google')).googleLoggedIn === false) {
         this.exchangeGoogleAuthCodeForToken();
       }
       else if(this.props.query.state === 'SONOS' && JSON.parse(window.localStorage.getItem('sonos')).sonosLoggedIn === false) {
         this.exchangeSonosAuthCodeForToken();
+      }else{
+        //Redirect if not logged into google
+        if(JSON.parse(window.localStorage.getItem('google')).googleLoggedIn === false) {
+          window.location.href="/login";
+        }
       }
     }
     
-    //If Google Authentication is False, then redirect to login page
-    if(this.state.googleLoggedIn === false && JSON.parse(window.localStorage.getItem('google')).googleLoggedIn === false){
-      window.location.href="/login"
-    }
   }
 
   render() {
