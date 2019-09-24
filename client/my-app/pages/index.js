@@ -5,6 +5,7 @@ import Link from 'next/link';
 import axios from 'axios';
 import {Button} from 'semantic-ui-react';
 
+
 var qs = require('qs');
 
 import { Divider, Grid, Image, Segment, Header } from 'semantic-ui-react';
