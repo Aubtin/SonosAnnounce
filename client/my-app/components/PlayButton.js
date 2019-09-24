@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Button, Icon } from 'semantic-ui-react'
+import AudioPlayer from './AudioPlayer';
 
 class ButtonExampleToggle extends Component {
 
@@ -34,6 +35,7 @@ class ButtonExampleToggle extends Component {
           <Icon name='pause' />
         </Button>  
       }
+      <AudioPlayer playing = {this.state.playing}/>
       </div>
     )
   }
