@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Dropdown } from 'semantic-ui-react';
+import { Dropdown, Segment } from 'semantic-ui-react';
 
 const voices = ['Aubtin', 'JAMACA', 'Megumin'];
 
@@ -13,10 +13,14 @@ class MainApplication extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      voice: "Megumin"
+      voice: "Megumin",
+      api_key: ""
     };
   }
-
+  
+  componentDidMount() {
+    this.setState({api_key: JSON.parse(window.localStorage.getItem('sonos')).api_key});
+  }
 
   render() {
     return (
@@ -24,6 +28,7 @@ class MainApplication extends Component {
         position: 'absolute', left: '50%', top: '50%',
         transform: 'translate(-50%, -50%)'
         }}>
+        <Segment><h1>api_key: {this.state.api_key}</h1></Segment>
         <h1>Voices</h1>
         <Dropdown placeholder='voice' search selection options={voiceOptions} value={this.state.voice} />
       </div>
