@@ -24,12 +24,12 @@ export default () => (
         position: 'absolute', left: '50%', top: '50%',
         transform: 'translate(-50%, -50%)'
         }}>
-            <h1 style={textCenter}>Login</h1>
-            <Button color="red" as='a' href={SONOS_AUTHENTICATION_URL} target="_blank">Sonos Login</Button>
+            <Button color="red" as='a' href={SONOS_AUTHENTICATION_URL}>Sonos Login</Button>
         </div>
 
 );
 
 const textCenter = {
   'text-align': 'center',
+  color: '#FFFFFF'
 }

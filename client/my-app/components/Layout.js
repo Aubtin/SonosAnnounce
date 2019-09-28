@@ -20,7 +20,7 @@ const Layout = (props) => (
 					color: #FFFFFF
 				}
 				body {
-					background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+					background: #393f4d;
 					
 				}
 			`}

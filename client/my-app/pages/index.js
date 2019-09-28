@@ -172,7 +172,12 @@ class Index extends React.Component {
 const buttonStyle = {
   'margin-left': '92.5%',
   'margin-right': '1.5%',
-  'margin-top': '1%'
+  'margin-top': '1%',
+  background: '#feda6a'
+}
+
+const yellow = {
+  background: '#feda6a'
 }
 
 export default Index;

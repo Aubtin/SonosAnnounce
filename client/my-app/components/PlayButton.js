@@ -23,13 +23,13 @@ class ButtonExampleToggle extends Component {
     return (
       <div>
       {this.state.playing === false && 
-        <Button onClick = {() => this.setState({playing: true})}> 
+        <Button style={buttonStyle} onClick = {() => this.setState({playing: true})}> 
           <Icon name='play' />
         </Button>  
       }
 
       {this.state.playing === true && 
-        <Button onClick = {() => this.setState({playing: false})}> 
+        <Button style={buttonStyle} onClick = {() => this.setState({playing: false})}> 
           <Icon name='pause' />
         </Button>  
       }
@@ -37,6 +37,11 @@ class ButtonExampleToggle extends Component {
       </div>
     )
   }
+}
+
+const buttonStyle = {
+  margin: '1%',
+  background: '#feda6a'
 }
 
 export default ButtonExampleToggle

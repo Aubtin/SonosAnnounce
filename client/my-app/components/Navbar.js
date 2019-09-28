@@ -23,7 +23,7 @@ const navLogo = {
 }
 
 const navBar = {
-  "background": 'linear-gradient(to left, #434343 0%, black 100%)',
+  "background": '#1d1e22',
 }
 
 const navButton = {

@@ -27,7 +27,7 @@ export default () => (
         transform: 'translate(-50%, -50%)'
         }}>
             <h1 style={textCenter}>Login</h1>
-            <Button color="green" as='a' href={GOOGLE_LOGIN_URL} target="_blank">Google Login</Button>
+            <Button color="green" as='a' href={GOOGLE_LOGIN_URL}>Google Login</Button>
         </div>
   </Layout>
 );
