@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Dropdown, Segment } from 'semantic-ui-react';
 import PlayButton from './PlayButton';
 
-const voices = ['Aubtin', 'JAMACA', 'Megumin'];
+const voices = ['Aubtin', 'JAMACA', 'Megumin', 'Justin'];
 
 const voiceOptions = voices.map( (voice, index) => ({
   key: index,
@@ -32,7 +32,7 @@ class MainApplication extends Component {
         <Segment><h1>api_key: {this.state.api_key}</h1></Segment>
         <h1>Voices</h1>
         <Dropdown placeholder='voice' search selection options={voiceOptions} value={this.state.voice} />
-        <PlayButton />
+        <PlayButton voice={this.state.voice}/>
       </div>
     );
   }

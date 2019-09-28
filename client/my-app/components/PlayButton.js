@@ -13,13 +13,11 @@ class ButtonExampleToggle extends Component {
 
   }
 
-  state = {}
-
   
   handleClick = () =>
     this.setState((prevState) => ({ active: !prevState.active }))
 
-  render() {
+  render(props) {
     const { active } = this.state
 
     return (
@@ -35,7 +33,7 @@ class ButtonExampleToggle extends Component {
           <Icon name='pause' />
         </Button>  
       }
-      <AudioPlayer playing = {this.state.playing}/>
+      <AudioPlayer playing = {this.state.playing} voice = { this.props.voice}/>
       </div>
     )
   }

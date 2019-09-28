@@ -164,7 +164,6 @@ class Index extends React.Component {
         {this.state.googleLoggedIn === true && <Button onClick={() => this.logout()} style={buttonStyle}>Logout</Button>}
         {this.state.googleLoggedIn === true && this.state.sonosLoggedIn === false && <SonosLogin />}
         {this.state.googleLoggedIn === true && this.state.sonosLoggedIn === true && <MainApplication />}
-        {this.state.googleLoggedIn === true && this.state.sonosLoggedIn === true && <MainApplication />}
       </Layout>
     );
   }
