@@ -90,3 +90,5 @@ typings/
 # Temp
 Backend/
 Backend/handlers/*
+
+./idea

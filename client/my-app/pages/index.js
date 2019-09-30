@@ -19,7 +19,7 @@ class Index extends React.Component {
       }
     }
 
-    static getInitialProps({query}) {
+    static async getInitialProps({query}) {
       return {query}
     }
 
