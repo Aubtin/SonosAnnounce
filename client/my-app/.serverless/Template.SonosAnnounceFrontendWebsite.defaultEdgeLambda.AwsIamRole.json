@@ -1,0 +1,12 @@
+{
+  "name": "q7b59a-bm4r5g",
+  "arn": "arn:aws:iam::712293664886:role/q7b59a-bm4r5g",
+  "service": [
+    "edgelambda.amazonaws.com",
+    "lambda.amazonaws.com"
+  ],
+  "policy": {
+    "arn": "arn:aws:iam::aws:policy/AdministratorAccess"
+  },
+  "region": "us-east-1"
+}

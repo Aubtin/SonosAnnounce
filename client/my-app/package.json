@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "sonosannouncefrontend",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -17,5 +17,12 @@
     "react-dom": "16.9.0",
     "react-player": "^1.13.0",
     "semantic-ui-react": "^0.88.1"
+  },
+  "devDependencies": {
+    "dotenv": "^8.1.0",
+    "dotenv-webpack": "^1.7.0",
+    "install": "^0.13.0",
+    "npm": "^6.11.3",
+    "serverless-next.js": "^1.2.3"
   }
 }

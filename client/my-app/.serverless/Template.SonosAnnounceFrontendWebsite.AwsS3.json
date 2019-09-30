@@ -1,0 +1,6 @@
+{
+  "name": "sonosannouncestatic-production",
+  "region": "us-east-1",
+  "accelerated": true,
+  "url": "https://sonosannouncestatic-production.s3.amazonaws.com"
+}

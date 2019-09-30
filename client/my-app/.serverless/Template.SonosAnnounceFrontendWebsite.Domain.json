@@ -1,0 +1,13 @@
+{
+  "region": "us-east-1",
+  "privateZone": false,
+  "domain": "sonosannounce.com",
+  "subdomains": [
+    {
+      "domain": "www.sonosannounce.com",
+      "distributionId": "E37HZHN9WDCKAN",
+      "url": "https://d3j2oelqlubbiu.cloudfront.net",
+      "type": "awsCloudFront"
+    }
+  ]
+}

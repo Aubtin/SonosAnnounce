@@ -1,0 +1,1 @@
+{"pages":{"ssr":{"dynamic":{},"nonDynamic":{"/_error":"pages/_error.js","/index":"pages/index.js","/":"pages/index.js","/_app":"pages/_app.js","/_document":"pages/_document.js"}},"html":{"/login":"pages/login.html"}},"publicFiles":{},"cloudFrontOrigins":{"staticOrigin":{"domainName":"sonosannouncestatic-production.s3.amazonaws.com"}}}

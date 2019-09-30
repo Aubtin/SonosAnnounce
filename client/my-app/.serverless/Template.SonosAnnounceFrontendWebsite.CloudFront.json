@@ -1,0 +1,32 @@
+{
+  "id": "E37HZHN9WDCKAN",
+  "arn": "arn:aws:cloudfront::712293664886:distribution/E37HZHN9WDCKAN",
+  "url": "https://d3j2oelqlubbiu.cloudfront.net",
+  "region": "us-east-1",
+  "origins": [
+    {
+      "url": "http://sonosannouncestatic-production.s3.amazonaws.com",
+      "private": true,
+      "pathPatterns": {
+        "_next/*": {
+          "ttl": 86400
+        },
+        "static/*": {
+          "ttl": 86400
+        }
+      }
+    }
+  ],
+  "defaults": {
+    "ttl": 5,
+    "allowedHttpMethods": [
+      "HEAD",
+      "GET"
+    ],
+    "cookies": "all",
+    "queryString": true,
+    "lambda@edge": {
+      "origin-request": "arn:aws:lambda:us-east-1:712293664886:function:q7b59a-v9uvhu6i:26"
+    }
+  }
+}

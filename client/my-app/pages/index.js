@@ -28,8 +28,7 @@ class Index extends React.Component {
     window.localStorage.clear();
 
     //Log out and redirect
-    window.location.href="https://sonosannounce-development.auth.us-west-2.amazoncognito.com/logout?client_id=5o28o8vhkmc07rgjneb5e2eht6&logout_uri=https://sonosannounce.com/login&scope=openid+profile+aws.cognito.signin.user.admin";
-    //window.location.href="https://sonosannounce-development.auth.us-west-2.amazoncognito.com/logout?response_type=code&client_id=5o28o8vhkmc07rgjneb5e2eht6&redirect_uri=http://localhost:3000/login/&scope=openid+profile+aws.cognito.signin.user.admin";
+    window.location.href = process.env.GOOGLE_LOGOUT_URL
   }
 
   exchangeGoogleAuthCodeForToken() {
@@ -39,12 +38,12 @@ class Index extends React.Component {
 
     //const encodedString = window.btoa(clientId + ":" + clientSecret);
 
-    axios.post('https://lvr9pdp7ea.execute-api.us-west-2.amazonaws.com/development/auth/users/tokens',
+    axios.post(process.env.API_PREFIX_URL + 'auth/users/tokens',
             {
               type: "login",
-              client_id: "5o28o8vhkmc07rgjneb5e2eht6",
+              client_id: process.env.GOOGLE_CLIENT_ID,
               code: AUTHORIZATION_CODE,
-              redirect_uri: "https://sonosannounce.com/"
+              redirect_uri: process.env.GOOGLE_LOGIN_REDIRECT_URL
             },
         {
           headers: {
@@ -61,7 +60,7 @@ class Index extends React.Component {
             codeGoogle: AUTHORIZATION_CODE,
             id_token: id_token,
             refresh_token: refresh_token
-          }
+          };
 
           this.setState({googleLoggedIn: true});
 
@@ -78,14 +77,14 @@ class Index extends React.Component {
 
   exchangeSonosAuthCodeForToken() {
     const AUTHORIZATION_CODE = this.props.query.code;
-    axios.post('https://lvr9pdp7ea.execute-api.us-west-2.amazonaws.com/development/auth/sonos/tokens',  
+    axios.post(process.env.API_PREFIX_URL + 'auth/sonos/tokens',
         {
           "type": "login",
-          "client_id": "5ade8149-be15-45ec-8489-5f45b029a3cc",
+          "client_id": process.env.SONOS_CLIENT_ID,
           "code": AUTHORIZATION_CODE,
-          "redirect_uri": "https://sonosannounce.com/"
+          "redirect_uri": process.env.SONOS_LOGIN_REDIRECT_URL
         }
-        , 
+        ,
         {
           headers: {
               'Content-Type': 'application/json',
@@ -133,7 +132,7 @@ class Index extends React.Component {
     } else {
       this.setState({sonosLoggedIn: JSON.parse(window.localStorage.getItem('sonos')).sonosLoggedIn});
     }
-    
+
     //Trading Auth for Code
     if(this.props.query) {
       console.log(this.props.query);
@@ -149,7 +148,7 @@ class Index extends React.Component {
         }
       }
     }
-    
+
   }
 
   render() {
