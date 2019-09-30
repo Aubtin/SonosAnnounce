@@ -28,7 +28,7 @@ class Index extends React.Component {
     window.localStorage.clear();
 
     //Log out and redirect
-    window.location.href="https://sonosannounce-development.auth.us-west-2.amazoncognito.com/logout?client_id=5o28o8vhkmc07rgjneb5e2eht6&logout_uri=http://localhost:3000/login&scope=openid+profile+aws.cognito.signin.user.admin";
+    window.location.href="https://sonosannounce-development.auth.us-west-2.amazoncognito.com/logout?client_id=5o28o8vhkmc07rgjneb5e2eht6&logout_uri=https://sonosannounce.com/login&scope=openid+profile+aws.cognito.signin.user.admin";
     //window.location.href="https://sonosannounce-development.auth.us-west-2.amazoncognito.com/logout?response_type=code&client_id=5o28o8vhkmc07rgjneb5e2eht6&redirect_uri=http://localhost:3000/login/&scope=openid+profile+aws.cognito.signin.user.admin";
   }
 
@@ -44,7 +44,7 @@ class Index extends React.Component {
               type: "login",
               client_id: "5o28o8vhkmc07rgjneb5e2eht6",
               code: AUTHORIZATION_CODE,
-              redirect_uri: "http://localhost:3000/"
+              redirect_uri: "https://sonosannounce.com/"
             },
         {
           headers: {
@@ -53,8 +53,6 @@ class Index extends React.Component {
           },
       ).then(res => {
         //Save the tokens in cookies
-          console.log("00000000000000000000000000000000000000000000000000000, its works the google trade");
-          console.log(res);
           var id_token = res.data.data.id_token;
           var refresh_token = res.data.data.refresh_token;
 
@@ -68,12 +66,8 @@ class Index extends React.Component {
           this.setState({googleLoggedIn: true});
 
           window.localStorage.setItem('google', JSON.stringify(GOOGLE));
-          console.log("This is the google function hehe:");
-          console.log(window.localStorage.getItem('google'));
 
       }).catch(res => {
-        console.log("There is an error");
-        console.log(res);
         window.location.href="/login"
       });
 
@@ -89,7 +83,7 @@ class Index extends React.Component {
           "type": "login",
           "client_id": "5ade8149-be15-45ec-8489-5f45b029a3cc",
           "code": AUTHORIZATION_CODE,
-          "redirect_uri": "http://localhost:3000/"
+          "redirect_uri": "https://sonosannounce.com/"
         }
         , 
         {
