@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Dropdown, Segment } from 'semantic-ui-react';
+import { Dropdown, Segment, Grid } from 'semantic-ui-react';
 import PlayButton from './PlayButton';
 
 const voices = ['Aubtin', 'JAMACA', 'Megumin', 'Justin'];
@@ -31,15 +31,21 @@ class MainApplication extends Component {
   render() {
     return (
       <div>
+        <Grid centered>
+          <Grid.Row>
         <Segment style={seg}><h1>api_key: {this.state.api_key}</h1></Segment>
-        <Segment style={seg}><h1>Voices</h1></Segment>
-        <Segment style={seg}>
+        </Grid.Row>
+        <Grid.Row>
+        <Segment style={seg} compact>
+          <h1>Voices</h1>
           <select style={dropDown} name="voice" value={this.state.voice} onChange={this.handleChange}>
             <option value="Jemma">Jemma</option>
             <option value="Justin">Justin</option>
           </select>
         </Segment>
+        </Grid.Row>
         <PlayButton style={button} voice={this.state.voice}/>
+        </Grid>
       </div>
     );
   }
@@ -62,9 +68,13 @@ const button = {
   'margin-right': '100px',
 }
 
+const options = {
+  'text-align': 'center',
+}
+
 const dropDown = {
   'border-radius': '25px',
-  'width': '95%',
+  'width': '100%',
 
   'height': '95%',
 }
