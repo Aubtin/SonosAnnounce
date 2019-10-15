@@ -139,6 +139,7 @@ class Index extends React.Component {
       }
       window.localStorage.setItem('google', JSON.stringify(GOOGLE));
     } else {
+      this.setState({googleLoggedIn: true});
       this.setState({googleLoggedIn: JSON.parse(window.localStorage.getItem('google')).googleLoggedIn});
     }
 
@@ -152,6 +153,7 @@ class Index extends React.Component {
       if(JSON.parse(window.localStorage.getItem('sonos')).haveApi === "true"){
         this.setState({api_key: true});
       }else{
+        this.setState({sonosLoggedIn: true});
         this.setState({sonosLoggedIn: JSON.parse(window.localStorage.getItem('sonos')).sonosLoggedIn});
       }
     }
