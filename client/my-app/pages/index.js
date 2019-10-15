@@ -16,6 +16,7 @@ class Index extends React.Component {
       this.state = {
         googleLoggedIn: false,
         sonosLoggedIn: false,
+        api_key: false,
       }
     }
 
@@ -61,6 +62,24 @@ class Index extends React.Component {
             id_token: id_token,
             refresh_token: refresh_token
           };
+
+          //Get Sonos Api key if it is stored inside google account already
+          //and set it so don't have to login sonos more than necessary
+          axios.get(process.env.API_PREFIX_URL + '/apikey',
+          {
+            headers: {
+                'Authorization': id_token
+            },
+          
+          }).then(res => {
+            console.log("Inside getting api key from google account");
+            console.log(res);
+            //Set to Local Storage
+            window.localStorage.setItem('sonos', JSON.stringify({api_key:res.data.data.api_key, haveApi:"true"}));
+            //Set to State to having api key to true
+            this.setState({api_key: true});
+            
+          }).catch();
 
           this.setState({googleLoggedIn: true});
 
@@ -130,7 +149,11 @@ class Index extends React.Component {
       }
       window.localStorage.setItem('sonos', JSON.stringify(SONOS));
     } else {
-      this.setState({sonosLoggedIn: JSON.parse(window.localStorage.getItem('sonos')).sonosLoggedIn});
+      if(JSON.parse(window.localStorage.getItem('sonos')).haveApi === "true"){
+        this.setState({api_key: true});
+      }else{
+        this.setState({sonosLoggedIn: JSON.parse(window.localStorage.getItem('sonos')).sonosLoggedIn});
+      }
     }
 
     //Trading Auth for Code
@@ -155,8 +178,8 @@ class Index extends React.Component {
     return(
       <Layout>
         {this.state.googleLoggedIn === true && <Button onClick={() => this.logout()} style={buttonStyle}>Logout</Button>}
-        {this.state.googleLoggedIn === true && this.state.sonosLoggedIn === false && <SonosLogin />}
-        {this.state.googleLoggedIn === true && this.state.sonosLoggedIn === true && <MainApplication />}
+        {this.state.googleLoggedIn === true && this.state.sonosLoggedIn === false && this.state.api_key === false && <SonosLogin />}
+        {this.state.googleLoggedIn === true && ((this.state.sonosLoggedIn === true) || (this.state.api_key === true)) && <MainApplication />}
       </Layout>
     );
   }
@@ -166,6 +189,7 @@ const buttonStyle = {
   'margin-left': '92.5%',
   'margin-right': '1.5%',
   'margin-top': '1%',
+  'margin-bottom': '2%',
   background: '#feda6a'
 }
 

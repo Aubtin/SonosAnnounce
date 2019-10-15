@@ -30,10 +30,7 @@ class MainApplication extends Component {
 
   render() {
     return (
-      <div style={{
-        position: 'absolute', left: '50%', top: '50%',
-        transform: 'translate(-50%, -50%)'
-        }}>
+      <div>
         <Segment style={seg}><h1>api_key: {this.state.api_key}</h1></Segment>
         <Segment style={seg}><h1>Voices</h1></Segment>
         <Segment style={seg}>
@@ -55,17 +52,20 @@ const textCenter = {
 const seg = {
   'backgroundColor': '#1d1e22',
   color: '#FFFFFF',
+  'margin-left': '5%',
+  'margin-right': '5%',
   'text-align': 'center',
   'border-radius': '25px'
 }
 
 const button = {
-  'text-align': 'right',
+  'margin-right': '100px',
 }
 
 const dropDown = {
   'border-radius': '25px',
   'width': '95%',
+
   'height': '95%',
 }
 

@@ -18,7 +18,6 @@ export default () => (
         position: 'absolute', left: '50%', top: '50%',
         transform: 'translate(-50%, -50%)'
         }}>
-            <h1 style={textCenter}>Login</h1>
             <Button color="green" as='a' href={GOOGLE_LOGIN_URL}>Google Login</Button>
         </div>
   </Layout>
