@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "RhDh");
+/******/ 	return __webpack_require__(__webpack_require__.s = "IlRI");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -19525,6 +19525,514 @@ var _Placeholder = _interopRequireDefault(__webpack_require__("IBUz"));
 
 /***/ }),
 
+/***/ "IlRI":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var pages_namespaceObject = {};
+__webpack_require__.r(pages_namespaceObject);
+__webpack_require__.d(pages_namespaceObject, "default", function() { return pages; });
+
+// EXTERNAL MODULE: external "url"
+var external_url_ = __webpack_require__("bzos");
+
+// EXTERNAL MODULE: ./node_modules/next/dist/next-server/server/render.js
+var render = __webpack_require__("/bjS");
+
+// EXTERNAL MODULE: ./node_modules/next/dist/next-server/server/send-html.js
+var send_html = __webpack_require__("LuNM");
+
+// EXTERNAL MODULE: ./.next/build-manifest.json
+var build_manifest = __webpack_require__("LZ9C");
+
+// EXTERNAL MODULE: ./.next/react-loadable-manifest.json
+var react_loadable_manifest = __webpack_require__("67Bq");
+
+// EXTERNAL MODULE: ./node_modules/next/dist/pages/_document.js
+var _document = __webpack_require__("VDXt");
+var _document_default = /*#__PURE__*/__webpack_require__.n(_document);
+
+// EXTERNAL MODULE: ./node_modules/next/dist/pages/_error.js
+var _error = __webpack_require__("/a9y");
+var _error_default = /*#__PURE__*/__webpack_require__.n(_error);
+
+// EXTERNAL MODULE: ./node_modules/next/dist/pages/_app.js
+var _app = __webpack_require__("B5Ud");
+var _app_default = /*#__PURE__*/__webpack_require__.n(_app);
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js
+var stringify = __webpack_require__("9Jkg");
+var stringify_default = /*#__PURE__*/__webpack_require__.n(stringify);
+
+// EXTERNAL MODULE: ./node_modules/react/index.js
+var react = __webpack_require__("q1tI");
+var react_default = /*#__PURE__*/__webpack_require__.n(react);
+
+// EXTERNAL MODULE: ./components/Layout.js + 1 modules
+var Layout = __webpack_require__("5Yp1");
+
+// EXTERNAL MODULE: ./node_modules/semantic-ui-react/dist/commonjs/index.js
+var commonjs = __webpack_require__("JkJM");
+
+// CONCATENATED MODULE: ./components/SonosLogin.js
+var __jsx = react_default.a.createElement;
+
+
+const SONOS_AUTHENTICATION_URL = sonosLogin();
+
+function sonosLogin() {
+  return "https://api.sonos.com/login/v3/oauth?client_id=5ade8149-be15-45ec-8489-5f45b029a3cc&response_type=code&state=SONOS&scope=playback-control-all&redirect_uri=https://sonosannounce.com/";
+} //Make this a class
+
+
+/* harmony default export */ var SonosLogin = (() => __jsx("div", {
+  style: {
+    position: 'absolute',
+    left: '50%',
+    top: '50%',
+    transform: 'translate(-50%, -50%)'
+  }
+}, __jsx(commonjs["Button"], {
+  color: "red",
+  as: "a",
+  href: SONOS_AUTHENTICATION_URL
+}, "Sonos Login")));
+const textCenter = {
+  'text-align': 'center',
+  color: '#FFFFFF'
+};
+// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js
+var define_property = __webpack_require__("hfKm");
+var define_property_default = /*#__PURE__*/__webpack_require__.n(define_property);
+
+// CONCATENATED MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    define_property_default()(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+// EXTERNAL MODULE: ./node_modules/react-player/lib/ReactPlayer.js
+var ReactPlayer = __webpack_require__("6tYh");
+var ReactPlayer_default = /*#__PURE__*/__webpack_require__.n(ReactPlayer);
+
+// CONCATENATED MODULE: ./components/AudioPlayer.js
+var AudioPlayer_jsx = react_default.a.createElement;
+
+
+
+class AudioPlayer_AudioPlayer extends react["Component"] {
+  render() {
+    console.log(this.props.voice);
+    var voice = "";
+    if (this.props.voice === "Jemma") voice = 'https://d3ugf22ib23wlw.cloudfront.net/audio/samples/Sample_Jemma_Premium.mp3';else if (this.props.voice === "Justin") voice = 'https://d3ugf22ib23wlw.cloudfront.net/audio/samples/Sample_Justin_Premium.mp3';
+    return AudioPlayer_jsx(ReactPlayer_default.a, {
+      url: voice,
+      playing: this.props.playing
+    });
+  }
+
+}
+
+/* harmony default export */ var components_AudioPlayer = (AudioPlayer_AudioPlayer);
+// CONCATENATED MODULE: ./components/PlayButton.js
+
+var PlayButton_jsx = react_default.a.createElement;
+
+
+
+
+class PlayButton_ButtonExampleToggle extends react["Component"] {
+  constructor(props) {
+    super(props);
+
+    _defineProperty(this, "handleClick", () => this.setState(prevState => ({
+      active: !prevState.active
+    })));
+
+    this.state = {
+      playing: false
+    };
+  }
+
+  render(props) {
+    const {
+      active
+    } = this.state;
+    return PlayButton_jsx("div", null, this.state.playing === false && PlayButton_jsx(commonjs["Button"], {
+      style: buttonStyle,
+      onClick: () => this.setState({
+        playing: true
+      })
+    }, PlayButton_jsx(commonjs["Icon"], {
+      name: "play"
+    })), this.state.playing === true && PlayButton_jsx(commonjs["Button"], {
+      style: buttonStyle,
+      onClick: () => this.setState({
+        playing: false
+      })
+    }, PlayButton_jsx(commonjs["Icon"], {
+      name: "pause"
+    })), PlayButton_jsx(components_AudioPlayer, {
+      playing: this.state.playing,
+      voice: this.props.voice
+    }));
+  }
+
+}
+
+const buttonStyle = {
+  margin: '1%',
+  background: '#feda6a'
+};
+/* harmony default export */ var PlayButton = (PlayButton_ButtonExampleToggle);
+// CONCATENATED MODULE: ./components/MainApplication.js
+
+var MainApplication_jsx = react_default.a.createElement;
+
+
+
+const voices = ['Aubtin', 'JAMACA', 'Megumin', 'Justin'];
+const voiceOptions = voices.map((voice, index) => ({
+  key: index,
+  text: voice,
+  value: voices[index]
+}));
+
+class MainApplication_MainApplication extends react["Component"] {
+  constructor(props) {
+    super(props);
+
+    _defineProperty(this, "handleChange", e => {
+      this.setState({
+        voice: e.target.value
+      });
+    });
+
+    this.state = {
+      voice: "Jemma",
+      api_key: ""
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentDidMount() {
+    this.setState({
+      api_key: JSON.parse(window.localStorage.getItem('sonos')).api_key
+    });
+  }
+
+  render() {
+    return MainApplication_jsx("div", {
+      style: {
+        position: 'absolute',
+        left: '50%',
+        top: '50%',
+        transform: 'translate(-50%, -50%)'
+      }
+    }, MainApplication_jsx(commonjs["Segment"], {
+      style: seg
+    }, MainApplication_jsx("h1", null, "api_key: ", this.state.api_key)), MainApplication_jsx(commonjs["Segment"], {
+      style: seg
+    }, MainApplication_jsx("h1", null, "Voices")), MainApplication_jsx(commonjs["Segment"], {
+      style: seg
+    }, MainApplication_jsx("select", {
+      style: dropDown,
+      name: "voice",
+      value: this.state.voice,
+      onChange: this.handleChange
+    }, MainApplication_jsx("option", {
+      value: "Jemma"
+    }, "Jemma"), MainApplication_jsx("option", {
+      value: "Justin"
+    }, "Justin"))), MainApplication_jsx(PlayButton, {
+      style: MainApplication_button,
+      voice: this.state.voice
+    }));
+  }
+
+}
+
+const MainApplication_textCenter = {
+  'text-align': 'center'
+};
+const seg = {
+  'backgroundColor': '#1d1e22',
+  color: '#FFFFFF',
+  'text-align': 'center',
+  'border-radius': '25px'
+};
+const MainApplication_button = {
+  'text-align': 'right'
+};
+const dropDown = {
+  'border-radius': '25px',
+  'width': '95%',
+  'height': '95%'
+};
+/* harmony default export */ var components_MainApplication = (MainApplication_MainApplication);
+// EXTERNAL MODULE: ./node_modules/next/link.js
+var next_link = __webpack_require__("YFqc");
+
+// EXTERNAL MODULE: ./node_modules/axios/index.js
+var axios = __webpack_require__("vDqi");
+var axios_default = /*#__PURE__*/__webpack_require__.n(axios);
+
+// CONCATENATED MODULE: ./pages/index.js
+
+
+var pages_jsx = react_default.a.createElement;
+
+
+
+
+
+
+
+var qs = __webpack_require__("Qyje");
+
+
+
+class pages_Index extends react_default.a.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      googleLoggedIn: false,
+      sonosLoggedIn: false
+    };
+  }
+
+  static async getInitialProps({
+    query
+  }) {
+    return {
+      query
+    };
+  }
+
+  logout() {
+    //Clear local storage
+    window.localStorage.clear(); //Log out and redirect
+
+    window.location.href = "https://auth.sonosannounce.com/logout?client_id=9krrfmigh0d91juundll593a5&logout_uri=https://sonosannounce.com/login";
+  }
+
+  exchangeGoogleAuthCodeForToken() {
+    console.log("in google function");
+    const AUTHORIZATION_CODE = this.props.query.code;
+    console.log("This is the authcode:" + AUTHORIZATION_CODE); //const encodedString = window.btoa(clientId + ":" + clientSecret);
+
+    axios_default.a.post("https://api.sonosannounce.com/v1/" + 'auth/users/tokens', {
+      type: "login",
+      client_id: "9krrfmigh0d91juundll593a5",
+      code: AUTHORIZATION_CODE,
+      redirect_uri: "https://sonosannounce.com/"
+    }, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(res => {
+      //Save the tokens in cookies
+      var id_token = res.data.data.id_token;
+      var refresh_token = res.data.data.refresh_token;
+      const GOOGLE = {
+        googleLoggedIn: true,
+        codeGoogle: AUTHORIZATION_CODE,
+        id_token: id_token,
+        refresh_token: refresh_token
+      };
+      this.setState({
+        googleLoggedIn: true
+      });
+      window.localStorage.setItem('google', stringify_default()(GOOGLE));
+    }).catch(res => {
+      window.location.href = "/login";
+    }); //console.log("This is the google function hehe:");
+    //console.log(window.localStorage.getItem('google'));
+  }
+
+  exchangeSonosAuthCodeForToken() {
+    const AUTHORIZATION_CODE = this.props.query.code;
+    axios_default.a.post("https://api.sonosannounce.com/v1/" + 'auth/sonos/tokens', {
+      "type": "login",
+      "client_id": "5ade8149-be15-45ec-8489-5f45b029a3cc",
+      "code": AUTHORIZATION_CODE,
+      "redirect_uri": "https://sonosannounce.com/"
+    }, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': JSON.parse(window.localStorage.getItem('google')).id_token
+      }
+    }).then(res => {
+      const SONOS = {
+        sonosLoggedIn: true,
+        codeSonos: AUTHORIZATION_CODE,
+        api_key: res.data.data.api_key
+      };
+      window.localStorage.setItem('sonos', stringify_default()(SONOS));
+      this.setState({
+        sonosLoggedIn: true
+      });
+      console.log(window.localStorage.getItem('sonos'));
+    }).catch(res => {
+      console.log("There is an error");
+      console.log(res);
+    });
+  }
+
+  componentDidMount() {
+    //Setting Local Storage and State of Page
+    if (localStorage.getItem("google") === null) {
+      console.log("hello1");
+      const GOOGLE = {
+        googleLoggedIn: false,
+        codeGoogle: null
+      };
+      window.localStorage.setItem('google', stringify_default()(GOOGLE));
+    } else {
+      this.setState({
+        googleLoggedIn: JSON.parse(window.localStorage.getItem('google')).googleLoggedIn
+      });
+    }
+
+    if (localStorage.getItem("sonos") === null) {
+      const SONOS = {
+        sonosLoggedIn: false,
+        codeSonos: null
+      };
+      window.localStorage.setItem('sonos', stringify_default()(SONOS));
+    } else {
+      this.setState({
+        sonosLoggedIn: JSON.parse(window.localStorage.getItem('sonos')).sonosLoggedIn
+      });
+    } //Trading Auth for Code
+
+
+    if (this.props.query) {
+      console.log(this.props.query);
+
+      if (this.props.query.state === 'GOOGLE' && JSON.parse(window.localStorage.getItem('google')).googleLoggedIn === false) {
+        this.exchangeGoogleAuthCodeForToken();
+      } else if (this.props.query.state === 'SONOS' && JSON.parse(window.localStorage.getItem('sonos')).sonosLoggedIn === false) {
+        this.exchangeSonosAuthCodeForToken();
+      } else {
+        //Redirect if not logged into google
+        if (JSON.parse(window.localStorage.getItem('google')).googleLoggedIn === false) {
+          window.location.href = "/login";
+        }
+      }
+    }
+  }
+
+  render() {
+    return pages_jsx(Layout["a" /* default */], null, this.state.googleLoggedIn === true && pages_jsx(commonjs["Button"], {
+      onClick: () => this.logout(),
+      style: pages_buttonStyle
+    }, "Logout"), this.state.googleLoggedIn === true && this.state.sonosLoggedIn === false && pages_jsx(SonosLogin, null), this.state.googleLoggedIn === true && this.state.sonosLoggedIn === true && pages_jsx(components_MainApplication, null));
+  }
+
+}
+
+const pages_buttonStyle = {
+  'margin-left': '92.5%',
+  'margin-right': '1.5%',
+  'margin-top': '1%',
+  background: '#feda6a'
+};
+const yellow = {
+  background: '#feda6a'
+};
+/* harmony default export */ var pages = (pages_Index);
+// CONCATENATED MODULE: ./node_modules/next/dist/build/webpack/loaders/next-serverless-loader.js?page=%2F&absolutePagePath=private-next-pages%2Findex.js&absoluteAppPath=next%2Fdist%2Fpages%2F_app&absoluteDocumentPath=next%2Fdist%2Fpages%2F_document&absoluteErrorPath=next%2Fdist%2Fpages%2F_error&distDir=private-dot-next&buildId=1Lxe39quNZju_kkUQtmXA&assetPrefix=&generateEtags=true&ampBindInitData=false&canonicalBase=
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "config", function() { return config; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "_app", function() { return next_serverless_loaderpage_2F_absolutePagePath_private_next_pages_2Findex_js_absoluteAppPath_next_2Fdist_2Fpages_2F_app_absoluteDocumentPath_next_2Fdist_2Fpages_2F_document_absoluteErrorPath_next_2Fdist_2Fpages_2F_error_distDir_private_dot_next_buildId_1Lxe39quNZju_kkUQtmXA_assetPrefix_generateEtags_true_ampBindInitData_false_canonicalBase_app; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "renderReqToHTML", function() { return renderReqToHTML; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return next_serverless_loaderpage_2F_absolutePagePath_private_next_pages_2Findex_js_absoluteAppPath_next_2Fdist_2Fpages_2F_app_absoluteDocumentPath_next_2Fdist_2Fpages_2F_document_absoluteErrorPath_next_2Fdist_2Fpages_2F_error_distDir_private_dot_next_buildId_1Lxe39quNZju_kkUQtmXA_assetPrefix_generateEtags_true_ampBindInitData_false_canonicalBase_render; });
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    const Component = pages
+    /* harmony default export */ var next_serverless_loaderpage_2F_absolutePagePath_private_next_pages_2Findex_js_absoluteAppPath_next_2Fdist_2Fpages_2F_app_absoluteDocumentPath_next_2Fdist_2Fpages_2F_document_absoluteErrorPath_next_2Fdist_2Fpages_2F_error_distDir_private_dot_next_buildId_1Lxe39quNZju_kkUQtmXA_assetPrefix_generateEtags_true_ampBindInitData_false_canonicalBase_ = __webpack_exports__["default"] = (Component);
+    const config = pages_namespaceObject['confi' + 'g'] || {}
+    const next_serverless_loaderpage_2F_absolutePagePath_private_next_pages_2Findex_js_absoluteAppPath_next_2Fdist_2Fpages_2F_app_absoluteDocumentPath_next_2Fdist_2Fpages_2F_document_absoluteErrorPath_next_2Fdist_2Fpages_2F_error_distDir_private_dot_next_buildId_1Lxe39quNZju_kkUQtmXA_assetPrefix_generateEtags_true_ampBindInitData_false_canonicalBase_app = _app_default.a
+    async function renderReqToHTML(req, res, fromExport) {
+      const options = {
+        App: _app_default.a,
+        Document: _document_default.a,
+        buildManifest: build_manifest,
+        reactLoadableManifest: react_loadable_manifest,
+        canonicalBase: "",
+        buildId: "1Lxe39quNZju_kkUQtmXA",
+        assetPrefix: "",
+        ampBindInitData: false
+      }
+      const parsedUrl = Object(external_url_["parse"])(req.url, true)
+      const renderOpts = Object.assign(
+        {
+          Component,
+          pageConfig: config,
+          dataOnly: req.headers && (req.headers.accept || '').indexOf('application/amp.bind+json') !== -1,
+          nextExport: fromExport
+        },
+        options,
+      )
+      try {
+        
+        const params = {};
+        const result = await Object(render["renderToHTML"])(req, res, "/", Object.assign({}, parsedUrl.query, params), renderOpts)
+
+        if (fromExport) return { html: result, renderOpts }
+        return result
+      } catch (err) {
+        if (err.code === 'ENOENT') {
+          res.statusCode = 404
+          const result = await Object(render["renderToHTML"])(req, res, "/_error", parsedUrl.query, Object.assign({}, options, {
+            Component: _error_default.a
+          }))
+          return result
+        } else {
+          console.error(err)
+          res.statusCode = 500
+          const result = await Object(render["renderToHTML"])(req, res, "/_error", parsedUrl.query, Object.assign({}, options, {
+            Component: _error_default.a,
+            err
+          }))
+          return result
+        }
+      }
+    }
+    async function next_serverless_loaderpage_2F_absolutePagePath_private_next_pages_2Findex_js_absoluteAppPath_next_2Fdist_2Fpages_2F_app_absoluteDocumentPath_next_2Fdist_2Fpages_2F_document_absoluteErrorPath_next_2Fdist_2Fpages_2F_error_distDir_private_dot_next_buildId_1Lxe39quNZju_kkUQtmXA_assetPrefix_generateEtags_true_ampBindInitData_false_canonicalBase_render (req, res) {
+      try {
+        const html = await renderReqToHTML(req, res)
+        Object(send_html["sendHTML"])(req, res, html, {generateEtags: true})
+      } catch(err) {
+        console.error(err)
+        res.statusCode = 500
+        res.end('Internal Server Error')
+      }
+    }
+  
+
+/***/ }),
+
 /***/ "Ioao":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -28101,514 +28609,6 @@ module.exports = function (it, tag, stat) {
   if (it && !has(it = stat ? it : it.prototype, TAG)) def(it, TAG, { configurable: true, value: tag });
 };
 
-
-/***/ }),
-
-/***/ "RhDh":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-var pages_namespaceObject = {};
-__webpack_require__.r(pages_namespaceObject);
-__webpack_require__.d(pages_namespaceObject, "default", function() { return pages; });
-
-// EXTERNAL MODULE: external "url"
-var external_url_ = __webpack_require__("bzos");
-
-// EXTERNAL MODULE: ./node_modules/next/dist/next-server/server/render.js
-var render = __webpack_require__("/bjS");
-
-// EXTERNAL MODULE: ./node_modules/next/dist/next-server/server/send-html.js
-var send_html = __webpack_require__("LuNM");
-
-// EXTERNAL MODULE: ./.next/build-manifest.json
-var build_manifest = __webpack_require__("LZ9C");
-
-// EXTERNAL MODULE: ./.next/react-loadable-manifest.json
-var react_loadable_manifest = __webpack_require__("67Bq");
-
-// EXTERNAL MODULE: ./node_modules/next/dist/pages/_document.js
-var _document = __webpack_require__("VDXt");
-var _document_default = /*#__PURE__*/__webpack_require__.n(_document);
-
-// EXTERNAL MODULE: ./node_modules/next/dist/pages/_error.js
-var _error = __webpack_require__("/a9y");
-var _error_default = /*#__PURE__*/__webpack_require__.n(_error);
-
-// EXTERNAL MODULE: ./node_modules/next/dist/pages/_app.js
-var _app = __webpack_require__("B5Ud");
-var _app_default = /*#__PURE__*/__webpack_require__.n(_app);
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js
-var stringify = __webpack_require__("9Jkg");
-var stringify_default = /*#__PURE__*/__webpack_require__.n(stringify);
-
-// EXTERNAL MODULE: ./node_modules/react/index.js
-var react = __webpack_require__("q1tI");
-var react_default = /*#__PURE__*/__webpack_require__.n(react);
-
-// EXTERNAL MODULE: ./components/Layout.js + 1 modules
-var Layout = __webpack_require__("5Yp1");
-
-// EXTERNAL MODULE: ./node_modules/semantic-ui-react/dist/commonjs/index.js
-var commonjs = __webpack_require__("JkJM");
-
-// CONCATENATED MODULE: ./components/SonosLogin.js
-var __jsx = react_default.a.createElement;
-
-
-const SONOS_AUTHENTICATION_URL = sonosLogin();
-
-function sonosLogin() {
-  return "https://api.sonos.com/login/v3/oauth?client_id=5ade8149-be15-45ec-8489-5f45b029a3cc&response_type=code&state=SONOS&scope=playback-control-all&redirect_uri=https://sonosannounce.com/";
-} //Make this a class
-
-
-/* harmony default export */ var SonosLogin = (() => __jsx("div", {
-  style: {
-    position: 'absolute',
-    left: '50%',
-    top: '50%',
-    transform: 'translate(-50%, -50%)'
-  }
-}, __jsx(commonjs["Button"], {
-  color: "red",
-  as: "a",
-  href: SONOS_AUTHENTICATION_URL
-}, "Sonos Login")));
-const textCenter = {
-  'text-align': 'center',
-  color: '#FFFFFF'
-};
-// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js
-var define_property = __webpack_require__("hfKm");
-var define_property_default = /*#__PURE__*/__webpack_require__.n(define_property);
-
-// CONCATENATED MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js
-
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    define_property_default()(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-// EXTERNAL MODULE: ./node_modules/react-player/lib/ReactPlayer.js
-var ReactPlayer = __webpack_require__("6tYh");
-var ReactPlayer_default = /*#__PURE__*/__webpack_require__.n(ReactPlayer);
-
-// CONCATENATED MODULE: ./components/AudioPlayer.js
-var AudioPlayer_jsx = react_default.a.createElement;
-
-
-
-class AudioPlayer_AudioPlayer extends react["Component"] {
-  render() {
-    console.log(this.props.voice);
-    var voice = "";
-    if (this.props.voice === "Jemma") voice = 'https://d3ugf22ib23wlw.cloudfront.net/audio/samples/Sample_Jemma_Premium.mp3';else if (this.props.voice === "Justin") voice = 'https://d3ugf22ib23wlw.cloudfront.net/audio/samples/Sample_Justin_Premium.mp3';
-    return AudioPlayer_jsx(ReactPlayer_default.a, {
-      url: voice,
-      playing: this.props.playing
-    });
-  }
-
-}
-
-/* harmony default export */ var components_AudioPlayer = (AudioPlayer_AudioPlayer);
-// CONCATENATED MODULE: ./components/PlayButton.js
-
-var PlayButton_jsx = react_default.a.createElement;
-
-
-
-
-class PlayButton_ButtonExampleToggle extends react["Component"] {
-  constructor(props) {
-    super(props);
-
-    _defineProperty(this, "handleClick", () => this.setState(prevState => ({
-      active: !prevState.active
-    })));
-
-    this.state = {
-      playing: false
-    };
-  }
-
-  render(props) {
-    const {
-      active
-    } = this.state;
-    return PlayButton_jsx("div", null, this.state.playing === false && PlayButton_jsx(commonjs["Button"], {
-      style: buttonStyle,
-      onClick: () => this.setState({
-        playing: true
-      })
-    }, PlayButton_jsx(commonjs["Icon"], {
-      name: "play"
-    })), this.state.playing === true && PlayButton_jsx(commonjs["Button"], {
-      style: buttonStyle,
-      onClick: () => this.setState({
-        playing: false
-      })
-    }, PlayButton_jsx(commonjs["Icon"], {
-      name: "pause"
-    })), PlayButton_jsx(components_AudioPlayer, {
-      playing: this.state.playing,
-      voice: this.props.voice
-    }));
-  }
-
-}
-
-const buttonStyle = {
-  margin: '1%',
-  background: '#feda6a'
-};
-/* harmony default export */ var PlayButton = (PlayButton_ButtonExampleToggle);
-// CONCATENATED MODULE: ./components/MainApplication.js
-
-var MainApplication_jsx = react_default.a.createElement;
-
-
-
-const voices = ['Aubtin', 'JAMACA', 'Megumin', 'Justin'];
-const voiceOptions = voices.map((voice, index) => ({
-  key: index,
-  text: voice,
-  value: voices[index]
-}));
-
-class MainApplication_MainApplication extends react["Component"] {
-  constructor(props) {
-    super(props);
-
-    _defineProperty(this, "handleChange", e => {
-      this.setState({
-        voice: e.target.value
-      });
-    });
-
-    this.state = {
-      voice: "Jemma",
-      api_key: ""
-    };
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  componentDidMount() {
-    this.setState({
-      api_key: JSON.parse(window.localStorage.getItem('sonos')).api_key
-    });
-  }
-
-  render() {
-    return MainApplication_jsx("div", {
-      style: {
-        position: 'absolute',
-        left: '50%',
-        top: '50%',
-        transform: 'translate(-50%, -50%)'
-      }
-    }, MainApplication_jsx(commonjs["Segment"], {
-      style: seg
-    }, MainApplication_jsx("h1", null, "api_key: ", this.state.api_key)), MainApplication_jsx(commonjs["Segment"], {
-      style: seg
-    }, MainApplication_jsx("h1", null, "Voices")), MainApplication_jsx(commonjs["Segment"], {
-      style: seg
-    }, MainApplication_jsx("select", {
-      style: dropDown,
-      name: "voice",
-      value: this.state.voice,
-      onChange: this.handleChange
-    }, MainApplication_jsx("option", {
-      value: "Jemma"
-    }, "Jemma"), MainApplication_jsx("option", {
-      value: "Justin"
-    }, "Justin"))), MainApplication_jsx(PlayButton, {
-      style: MainApplication_button,
-      voice: this.state.voice
-    }));
-  }
-
-}
-
-const MainApplication_textCenter = {
-  'text-align': 'center'
-};
-const seg = {
-  'backgroundColor': '#1d1e22',
-  color: '#FFFFFF',
-  'text-align': 'center',
-  'border-radius': '25px'
-};
-const MainApplication_button = {
-  'text-align': 'right'
-};
-const dropDown = {
-  'border-radius': '25px',
-  'width': '95%',
-  'height': '95%'
-};
-/* harmony default export */ var components_MainApplication = (MainApplication_MainApplication);
-// EXTERNAL MODULE: ./node_modules/next/link.js
-var next_link = __webpack_require__("YFqc");
-
-// EXTERNAL MODULE: ./node_modules/axios/index.js
-var axios = __webpack_require__("vDqi");
-var axios_default = /*#__PURE__*/__webpack_require__.n(axios);
-
-// CONCATENATED MODULE: ./pages/index.js
-
-
-var pages_jsx = react_default.a.createElement;
-
-
-
-
-
-
-
-var qs = __webpack_require__("Qyje");
-
-
-
-class pages_Index extends react_default.a.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      googleLoggedIn: false,
-      sonosLoggedIn: false
-    };
-  }
-
-  static async getInitialProps({
-    query
-  }) {
-    return {
-      query
-    };
-  }
-
-  logout() {
-    //Clear local storage
-    window.localStorage.clear(); //Log out and redirect
-
-    window.location.href = "https://auth.sonosannounce.com/logout?client_id=9krrfmigh0d91juundll593a5&logout_uri=http://localhost:3000/login";
-  }
-
-  exchangeGoogleAuthCodeForToken() {
-    console.log("in google function");
-    const AUTHORIZATION_CODE = this.props.query.code;
-    console.log("This is the authcode:" + AUTHORIZATION_CODE); //const encodedString = window.btoa(clientId + ":" + clientSecret);
-
-    axios_default.a.post("https://api.sonosannounce.com/v1/" + 'auth/users/tokens', {
-      type: "login",
-      client_id: "9krrfmigh0d91juundll593a5",
-      code: AUTHORIZATION_CODE,
-      redirect_uri: "https://sonosannounce.com/"
-    }, {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }).then(res => {
-      //Save the tokens in cookies
-      var id_token = res.data.data.id_token;
-      var refresh_token = res.data.data.refresh_token;
-      const GOOGLE = {
-        googleLoggedIn: true,
-        codeGoogle: AUTHORIZATION_CODE,
-        id_token: id_token,
-        refresh_token: refresh_token
-      };
-      this.setState({
-        googleLoggedIn: true
-      });
-      window.localStorage.setItem('google', stringify_default()(GOOGLE));
-    }).catch(res => {
-      window.location.href = "/login";
-    }); //console.log("This is the google function hehe:");
-    //console.log(window.localStorage.getItem('google'));
-  }
-
-  exchangeSonosAuthCodeForToken() {
-    const AUTHORIZATION_CODE = this.props.query.code;
-    axios_default.a.post("https://api.sonosannounce.com/v1/" + 'auth/sonos/tokens', {
-      "type": "login",
-      "client_id": "5ade8149-be15-45ec-8489-5f45b029a3cc",
-      "code": AUTHORIZATION_CODE,
-      "redirect_uri": "https://sonosannounce.com/"
-    }, {
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': JSON.parse(window.localStorage.getItem('google')).id_token
-      }
-    }).then(res => {
-      const SONOS = {
-        sonosLoggedIn: true,
-        codeSonos: AUTHORIZATION_CODE,
-        api_key: res.data.data.api_key
-      };
-      window.localStorage.setItem('sonos', stringify_default()(SONOS));
-      this.setState({
-        sonosLoggedIn: true
-      });
-      console.log(window.localStorage.getItem('sonos'));
-    }).catch(res => {
-      console.log("There is an error");
-      console.log(res);
-    });
-  }
-
-  componentDidMount() {
-    //Setting Local Storage and State of Page
-    if (localStorage.getItem("google") === null) {
-      console.log("hello1");
-      const GOOGLE = {
-        googleLoggedIn: false,
-        codeGoogle: null
-      };
-      window.localStorage.setItem('google', stringify_default()(GOOGLE));
-    } else {
-      this.setState({
-        googleLoggedIn: JSON.parse(window.localStorage.getItem('google')).googleLoggedIn
-      });
-    }
-
-    if (localStorage.getItem("sonos") === null) {
-      const SONOS = {
-        sonosLoggedIn: false,
-        codeSonos: null
-      };
-      window.localStorage.setItem('sonos', stringify_default()(SONOS));
-    } else {
-      this.setState({
-        sonosLoggedIn: JSON.parse(window.localStorage.getItem('sonos')).sonosLoggedIn
-      });
-    } //Trading Auth for Code
-
-
-    if (this.props.query) {
-      console.log(this.props.query);
-
-      if (this.props.query.state === 'GOOGLE' && JSON.parse(window.localStorage.getItem('google')).googleLoggedIn === false) {
-        this.exchangeGoogleAuthCodeForToken();
-      } else if (this.props.query.state === 'SONOS' && JSON.parse(window.localStorage.getItem('sonos')).sonosLoggedIn === false) {
-        this.exchangeSonosAuthCodeForToken();
-      } else {
-        //Redirect if not logged into google
-        if (JSON.parse(window.localStorage.getItem('google')).googleLoggedIn === false) {
-          window.location.href = "/login";
-        }
-      }
-    }
-  }
-
-  render() {
-    return pages_jsx(Layout["a" /* default */], null, this.state.googleLoggedIn === true && pages_jsx(commonjs["Button"], {
-      onClick: () => this.logout(),
-      style: pages_buttonStyle
-    }, "Logout"), this.state.googleLoggedIn === true && this.state.sonosLoggedIn === false && pages_jsx(SonosLogin, null), this.state.googleLoggedIn === true && this.state.sonosLoggedIn === true && pages_jsx(components_MainApplication, null));
-  }
-
-}
-
-const pages_buttonStyle = {
-  'margin-left': '92.5%',
-  'margin-right': '1.5%',
-  'margin-top': '1%',
-  background: '#feda6a'
-};
-const yellow = {
-  background: '#feda6a'
-};
-/* harmony default export */ var pages = (pages_Index);
-// CONCATENATED MODULE: ./node_modules/next/dist/build/webpack/loaders/next-serverless-loader.js?page=%2F&absolutePagePath=private-next-pages%2Findex.js&absoluteAppPath=next%2Fdist%2Fpages%2F_app&absoluteDocumentPath=next%2Fdist%2Fpages%2F_document&absoluteErrorPath=next%2Fdist%2Fpages%2F_error&distDir=private-dot-next&buildId=A76Fwk1SvITzpGFYUi6mE&assetPrefix=&generateEtags=true&ampBindInitData=false&canonicalBase=
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "config", function() { return config; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "_app", function() { return next_serverless_loaderpage_2F_absolutePagePath_private_next_pages_2Findex_js_absoluteAppPath_next_2Fdist_2Fpages_2F_app_absoluteDocumentPath_next_2Fdist_2Fpages_2F_document_absoluteErrorPath_next_2Fdist_2Fpages_2F_error_distDir_private_dot_next_buildId_A76Fwk1SvITzpGFYUi6mE_assetPrefix_generateEtags_true_ampBindInitData_false_canonicalBase_app; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "renderReqToHTML", function() { return renderReqToHTML; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return next_serverless_loaderpage_2F_absolutePagePath_private_next_pages_2Findex_js_absoluteAppPath_next_2Fdist_2Fpages_2F_app_absoluteDocumentPath_next_2Fdist_2Fpages_2F_document_absoluteErrorPath_next_2Fdist_2Fpages_2F_error_distDir_private_dot_next_buildId_A76Fwk1SvITzpGFYUi6mE_assetPrefix_generateEtags_true_ampBindInitData_false_canonicalBase_render; });
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    const Component = pages
-    /* harmony default export */ var next_serverless_loaderpage_2F_absolutePagePath_private_next_pages_2Findex_js_absoluteAppPath_next_2Fdist_2Fpages_2F_app_absoluteDocumentPath_next_2Fdist_2Fpages_2F_document_absoluteErrorPath_next_2Fdist_2Fpages_2F_error_distDir_private_dot_next_buildId_A76Fwk1SvITzpGFYUi6mE_assetPrefix_generateEtags_true_ampBindInitData_false_canonicalBase_ = __webpack_exports__["default"] = (Component);
-    const config = pages_namespaceObject['confi' + 'g'] || {}
-    const next_serverless_loaderpage_2F_absolutePagePath_private_next_pages_2Findex_js_absoluteAppPath_next_2Fdist_2Fpages_2F_app_absoluteDocumentPath_next_2Fdist_2Fpages_2F_document_absoluteErrorPath_next_2Fdist_2Fpages_2F_error_distDir_private_dot_next_buildId_A76Fwk1SvITzpGFYUi6mE_assetPrefix_generateEtags_true_ampBindInitData_false_canonicalBase_app = _app_default.a
-    async function renderReqToHTML(req, res, fromExport) {
-      const options = {
-        App: _app_default.a,
-        Document: _document_default.a,
-        buildManifest: build_manifest,
-        reactLoadableManifest: react_loadable_manifest,
-        canonicalBase: "",
-        buildId: "A76Fwk1SvITzpGFYUi6mE",
-        assetPrefix: "",
-        ampBindInitData: false
-      }
-      const parsedUrl = Object(external_url_["parse"])(req.url, true)
-      const renderOpts = Object.assign(
-        {
-          Component,
-          pageConfig: config,
-          dataOnly: req.headers && (req.headers.accept || '').indexOf('application/amp.bind+json') !== -1,
-          nextExport: fromExport
-        },
-        options,
-      )
-      try {
-        
-        const params = {};
-        const result = await Object(render["renderToHTML"])(req, res, "/", Object.assign({}, parsedUrl.query, params), renderOpts)
-
-        if (fromExport) return { html: result, renderOpts }
-        return result
-      } catch (err) {
-        if (err.code === 'ENOENT') {
-          res.statusCode = 404
-          const result = await Object(render["renderToHTML"])(req, res, "/_error", parsedUrl.query, Object.assign({}, options, {
-            Component: _error_default.a
-          }))
-          return result
-        } else {
-          console.error(err)
-          res.statusCode = 500
-          const result = await Object(render["renderToHTML"])(req, res, "/_error", parsedUrl.query, Object.assign({}, options, {
-            Component: _error_default.a,
-            err
-          }))
-          return result
-        }
-      }
-    }
-    async function next_serverless_loaderpage_2F_absolutePagePath_private_next_pages_2Findex_js_absoluteAppPath_next_2Fdist_2Fpages_2F_app_absoluteDocumentPath_next_2Fdist_2Fpages_2F_document_absoluteErrorPath_next_2Fdist_2Fpages_2F_error_distDir_private_dot_next_buildId_A76Fwk1SvITzpGFYUi6mE_assetPrefix_generateEtags_true_ampBindInitData_false_canonicalBase_render (req, res) {
-      try {
-        const html = await renderReqToHTML(req, res)
-        Object(send_html["sendHTML"])(req, res, html, {generateEtags: true})
-      } catch(err) {
-        console.error(err)
-        res.statusCode = 500
-        res.end('Internal Server Error')
-      }
-    }
-  
 
 /***/ }),
 
