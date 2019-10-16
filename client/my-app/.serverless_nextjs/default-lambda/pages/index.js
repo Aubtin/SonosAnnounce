@@ -19705,7 +19705,7 @@ var MainApplication_jsx = react_default.a.createElement;
 
 
 
-const voices = ['Aubtin', 'JAMACA', 'Megumin', 'Justin'];
+const voices = ['Jemma', 'John', 'Anna', 'Justin'];
 const voiceOptions = voices.map((voice, index) => ({
   key: index,
   text: voice,
@@ -19757,6 +19757,10 @@ class MainApplication_MainApplication extends react["Component"] {
     }, MainApplication_jsx("option", {
       value: "Jemma"
     }, "Jemma"), MainApplication_jsx("option", {
+      value: "John"
+    }, "John"), MainApplication_jsx("option", {
+      value: "Anna"
+    }, "Anna"), MainApplication_jsx("option", {
       value: "Justin"
     }, "Justin"))), MainApplication_jsx(PlayButton, {
       style: MainApplication_button,
