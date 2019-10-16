@@ -14,6 +14,7 @@ const MyNavbar = () => (
 		<Navbar.Brand href="/" className='font-weight-bold' style={navLogo}>SonosAnnouce</Navbar.Brand>
 	  	<Nav className="mr-auto">
 	    </Nav>
+		
 	</Navbar>
 	</Sticky>
 );

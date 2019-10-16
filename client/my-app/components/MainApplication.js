@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Dropdown, Segment, Grid } from 'semantic-ui-react';
 import PlayButton from './PlayButton';
+import Tutorial from './Tutorial';
 
-const voices = ['Aubtin', 'JAMACA', 'Megumin', 'Justin'];
+const voices = ['Jemma', 'John', 'Anna', 'Justin'];
 
 const voiceOptions = voices.map( (voice, index) => ({
   key: index,
@@ -33,22 +34,36 @@ class MainApplication extends Component {
       <div>
         <Grid centered>
           <Grid.Row>
-        <Segment style={seg}><h1>api_key: {this.state.api_key}</h1></Segment>
+        <Segment style={seg}><h1>API Key: {this.state.api_key}</h1></Segment>
         </Grid.Row>
+        <Segment style={seg}>
+          <Tutorial />
+        </Segment>
         <Grid.Row>
         <Segment style={seg} compact>
           <h1>Voices</h1>
           <select style={dropDown} name="voice" value={this.state.voice} onChange={this.handleChange}>
             <option value="Jemma">Jemma</option>
             <option value="Justin">Justin</option>
+            <option value="Anna">Anna</option>
+            <option value="John">John</option>
           </select>
+          
         </Segment>
+        
         </Grid.Row>
-        <PlayButton style={button} voice={this.state.voice}/>
+        <Grid.Row>
+        <PlayButton style={seg} voice={this.state.voice}/>
+        </Grid.Row>
+        
         </Grid>
       </div>
     );
   }
+}
+
+const back = {
+  'background': 'white',
 }
 
 const textCenter = {
@@ -65,7 +80,7 @@ const seg = {
 }
 
 const button = {
-  'margin-right': '100px',
+  'margin-right': '50px',
 }
 
 const options = {
