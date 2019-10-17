@@ -28,7 +28,7 @@
       "queryString": true
     },
     "lambda@edge": {
-      "origin-request": "arn:aws:lambda:us-east-1:712293664886:function:q7b59a-v9uvhu6i:54"
+      "origin-request": "arn:aws:lambda:us-east-1:712293664886:function:q7b59a-v9uvhu6i:56"
     }
   }
 }
