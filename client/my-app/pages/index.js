@@ -20,7 +20,7 @@ class Index extends React.Component {
       }
     }
 
-    static async getInitialProps({query}) {
+    static async getInitialProps({req, query}) {
       return {query}
     }
 
@@ -70,7 +70,7 @@ class Index extends React.Component {
             headers: {
                 'Authorization': id_token
             },
-          
+
           }).then(res => {
             console.log("Inside getting api key from google account");
             console.log(res);
@@ -78,7 +78,7 @@ class Index extends React.Component {
             window.localStorage.setItem('sonos', JSON.stringify({api_key:res.data.data.api_key, haveApi:"true"}));
             //Set to State to having api key to true
             this.setState({api_key: true});
-            
+
           }).catch();
 
           this.setState({googleLoggedIn: true});

@@ -1,10 +1,10 @@
 {
   "name": "q7b59a-v9uvhu6i",
-  "hash": "TzSwH34BJ1xdwbt+TEIErd1PdO7aP0iCrJ8Di2jT0A8=",
+  "hash": "AK747cvj/z/aY3HUqDX/0RgmInMopEWNa8N7MXKdNLg=",
   "description": "Default Lambda@Edge for Next CloudFront distribution",
   "memory": 512,
   "timeout": 10,
-  "code": "./.serverless_nextjs/default-lambda",
+  "code": "/Users/aubtinsamai/Documents/SonosAnnounce/client/my-app/.serverless_nextjs/default-lambda",
   "shims": [],
   "handler": "index.handler",
   "runtime": "nodejs10.x",

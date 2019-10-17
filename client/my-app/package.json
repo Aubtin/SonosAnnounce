@@ -23,6 +23,6 @@
     "dotenv-webpack": "^1.7.0",
     "install": "^0.13.0",
     "npm": "^6.11.3",
-    "serverless-next.js": "^1.2.3"
+    "serverless-next.js": "^1.4.1"
   }
 }
