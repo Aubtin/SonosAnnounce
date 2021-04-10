@@ -1,7 +1,7 @@
 # NOTE: For at least serverless-next.js version 1.2.3
 # need to add the non-www CNAME to the CloudFront distribution.
 SonosAnnounceFrontendWebsite:
-  component: serverless-next.js
+  component: "serverless-next.js@1.4.1"
   inputs:
     domain: ["www", "sonosannounce.com"]
     bucketName: sonosannouncestatic-production

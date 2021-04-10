@@ -11,10 +11,10 @@ import { Icon, Grid, Sticky } from 'semantic-ui-react'
 const MyNavbar = () => (
 	<Sticky>
 	<Navbar expand="lg" variant="dark" style={navBar}>
-		<Navbar.Brand href="/" className='font-weight-bold' style={navLogo}>SonosAnnouce</Navbar.Brand>
+		<Navbar.Brand href="/" className='font-weight-bold' style={navLogo}>SonosAnnounce</Navbar.Brand>
 	  	<Nav className="mr-auto">
 	    </Nav>
-		
+
 	</Navbar>
 	</Sticky>
 );
